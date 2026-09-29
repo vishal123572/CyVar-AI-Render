@@ -1,0 +1,14 @@
+.local/
+.runtime/
+**/venv/
+**/.venv*/
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+**/.env
+**/.env.*
+!**/.env.example
+frontend/dist/
+*.log
+*.zip
+.railway/

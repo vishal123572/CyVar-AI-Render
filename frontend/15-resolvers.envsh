@@ -1,0 +1,4 @@
+#!/bin/sh
+# Nginx must re-resolve Railway/Docker private hostnames after backend redeploys.
+DNS_RESOLVERS=$(awk '/^nameserver/ { if (index($2, ":")) printf "[%s] ", $2; else printf "%s ", $2 }' /etc/resolv.conf)
+export DNS_RESOLVERS

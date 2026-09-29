@@ -1,0 +1,325 @@
+{
+  "software_inventory": [
+    {
+      "id": 1,
+      "asset_id": 1,
+      "vendor": "Apache",
+      "product": "Log4j",
+      "version": "2.14.1",
+      "cpe": "cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*"
+    },
+    {
+      "id": 2,
+      "asset_id": 1,
+      "vendor": "Python",
+      "product": "FastAPI",
+      "version": "Demo",
+      "cpe": null
+    },
+    {
+      "id": 3,
+      "asset_id": 3,
+      "vendor": "Keycloak",
+      "product": "Keycloak",
+      "version": "Demo",
+      "cpe": null
+    },
+    {
+      "id": 4,
+      "asset_id": 6,
+      "vendor": "Apache",
+      "product": "HTTP Server",
+      "version": "Demo",
+      "cpe": null
+    },
+    {
+      "id": 5,
+      "asset_id": 2,
+      "vendor": "PostgreSQL",
+      "product": "PostgreSQL",
+      "version": "16.4",
+      "cpe": "cpe:2.3:a:postgresql:postgresql:16.4:*:*:*:*:*:*:*"
+    },
+    {
+      "id": 6,
+      "asset_id": 3,
+      "vendor": "Red Hat",
+      "product": "Keycloak",
+      "version": "13.0.0",
+      "cpe": "cpe:2.3:a:redhat:keycloak:13.0.0:*:*:*:*:*:*:*"
+    },
+    {
+      "id": 7,
+      "asset_id": 4,
+      "vendor": "PostgreSQL",
+      "product": "PostgreSQL",
+      "version": "15.8",
+      "cpe": "cpe:2.3:a:postgresql:postgresql:15.8:*:*:*:*:*:*:*"
+    },
+    {
+      "id": 8,
+      "asset_id": 5,
+      "vendor": "VMware",
+      "product": "Spring Framework",
+      "version": "5.3.17",
+      "cpe": "cpe:2.3:a:vmware:spring_framework:5.3.17:*:*:*:*:*:*:*"
+    },
+    {
+      "id": 9,
+      "asset_id": 6,
+      "vendor": "Apache",
+      "product": "HTTP Server",
+      "version": "2.4.50",
+      "cpe": "cpe:2.3:a:apache:http_server:2.4.50:*:*:*:*:*:*:*"
+    }
+  ],
+  "business_services": [
+    {
+      "id": 1,
+      "service_code": "BS-PAY-001",
+      "name": "Online Payments",
+      "business_unit": "Digital Banking",
+      "criticality": 5,
+      "revenue_per_hour": 300000.0,
+      "max_tolerable_downtime": 2.0
+    },
+    {
+      "id": 2,
+      "service_code": "BS-AUTH-001",
+      "name": "Customer Authentication",
+      "business_unit": "Identity & Access",
+      "criticality": 5,
+      "revenue_per_hour": 200000.0,
+      "max_tolerable_downtime": 1.0
+    },
+    {
+      "id": 3,
+      "service_code": "BS-MOB-001",
+      "name": "Mobile Banking",
+      "business_unit": "Digital Banking",
+      "criticality": 5,
+      "revenue_per_hour": 250000.0,
+      "max_tolerable_downtime": 2.0
+    }
+  ],
+  "assets": [
+    {
+      "id": 1,
+      "asset_code": "PAY-API-001",
+      "name": "Payment Gateway API",
+      "asset_type": "Web Application",
+      "business_unit": "Digital Banking",
+      "business_service_id": 1,
+      "criticality": 5,
+      "internet_exposed": true,
+      "data_classification": "Restricted",
+      "environment": "Production"
+    },
+    {
+      "id": 2,
+      "asset_code": "PAY-DB-001",
+      "name": "Payment Transaction Database",
+      "asset_type": "Database",
+      "business_unit": "Digital Banking",
+      "business_service_id": 1,
+      "criticality": 5,
+      "internet_exposed": false,
+      "data_classification": "Restricted",
+      "environment": "Production"
+    },
+    {
+      "id": 3,
+      "asset_code": "IAM-001",
+      "name": "Identity Server",
+      "asset_type": "Identity",
+      "business_unit": "Identity & Access",
+      "business_service_id": 2,
+      "criticality": 5,
+      "internet_exposed": true,
+      "data_classification": "Restricted",
+      "environment": "Production"
+    },
+    {
+      "id": 4,
+      "asset_code": "CUST-DB-001",
+      "name": "Customer Database",
+      "asset_type": "Database",
+      "business_unit": "Digital Banking",
+      "business_service_id": 3,
+      "criticality": 5,
+      "internet_exposed": false,
+      "data_classification": "Restricted",
+      "environment": "Production"
+    },
+    {
+      "id": 5,
+      "asset_code": "MOB-API-001",
+      "name": "Mobile Banking API",
+      "asset_type": "API",
+      "business_unit": "Digital Banking",
+      "business_service_id": 3,
+      "criticality": 5,
+      "internet_exposed": true,
+      "data_classification": "Confidential",
+      "environment": "Production"
+    },
+    {
+      "id": 6,
+      "asset_code": "WEB-001",
+      "name": "Internet Banking Web Server",
+      "asset_type": "Web Server",
+      "business_unit": "Digital Banking",
+      "business_service_id": 3,
+      "criticality": 4,
+      "internet_exposed": true,
+      "data_classification": "Confidential",
+      "environment": "Production"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": 1,
+      "asset_id": 1,
+      "cve_id": "CVE-2021-44228",
+      "description": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled. From log4j 2.15.0, this behavior has been disabled by default. From version 2.16.0 (along with 2.12.2, 2.12.3, and 2.3.1), this functionality has been completely removed. Note that this vulnerability is specific to log4j-core and does not affect log4net, log4cxx, or other Apache Logging Services projects.",
+      "cvss_score": 10.0,
+      "cvss_severity": "CRITICAL",
+      "epss_score": 0.99999,
+      "epss_percentile": 1.0,
+      "cisa_kev": true,
+      "patch_status": "Open"
+    },
+    {
+      "id": 2,
+      "asset_id": 2,
+      "cve_id": "CVE-2024-10979",
+      "description": "Incorrect control of environment variables in PostgreSQL PL/Perl allows an unprivileged database user to change sensitive process environment variables (e.g. PATH).  That often suffices to enable arbitrary code execution, even if the attacker lacks a database server operating system user.  Versions before PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, and 12.21 are affected.",
+      "cvss_score": 8.8,
+      "cvss_severity": "HIGH",
+      "epss_score": 0.04393,
+      "epss_percentile": 0.9098,
+      "cisa_kev": false,
+      "patch_status": "Open"
+    },
+    {
+      "id": 3,
+      "asset_id": 3,
+      "cve_id": "CVE-2021-20222",
+      "description": "A flaw was found in keycloak. The new account console in keycloak can allow malicious code to be executed using the referrer URL. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
+      "cvss_score": 7.5,
+      "cvss_severity": "HIGH",
+      "epss_score": 0.0119,
+      "epss_percentile": 0.66741,
+      "cisa_kev": false,
+      "patch_status": "Open"
+    },
+    {
+      "id": 4,
+      "asset_id": 4,
+      "cve_id": "CVE-2024-10979",
+      "description": "Incorrect control of environment variables in PostgreSQL PL/Perl allows an unprivileged database user to change sensitive process environment variables (e.g. PATH).  That often suffices to enable arbitrary code execution, even if the attacker lacks a database server operating system user.  Versions before PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, and 12.21 are affected.",
+      "cvss_score": 8.8,
+      "cvss_severity": "HIGH",
+      "epss_score": 0.04393,
+      "epss_percentile": 0.9098,
+      "cisa_kev": false,
+      "patch_status": "Open"
+    },
+    {
+      "id": 5,
+      "asset_id": 5,
+      "cve_id": "CVE-2022-22965",
+      "description": "A Spring MVC or Spring WebFlux application running on JDK 9+ may be vulnerable to remote code execution (RCE) via data binding. The specific exploit requires the application to run on Tomcat as a WAR deployment. If the application is deployed as a Spring Boot executable jar, i.e. the default, it is not vulnerable to the exploit. However, the nature of the vulnerability is more general, and there may be other ways to exploit it.",
+      "cvss_score": 9.8,
+      "cvss_severity": "CRITICAL",
+      "epss_score": 0.99638,
+      "epss_percentile": 0.99948,
+      "cisa_kev": true,
+      "patch_status": "Open"
+    },
+    {
+      "id": 6,
+      "asset_id": 6,
+      "cve_id": "CVE-2021-42013",
+      "description": "It was found that the fix for CVE-2021-41773 in Apache HTTP Server 2.4.50 was insufficient. An attacker could use a path traversal attack to map URLs to files outside the directories configured by Alias-like directives. If files outside of these directories are not protected by the usual default configuration \"require all denied\", these requests can succeed. If CGI scripts are also enabled for these aliased pathes, this could allow for remote code execution. This issue only affects Apache 2.4.49 and Apache 2.4.50 and not earlier versions.",
+      "cvss_score": 9.8,
+      "cvss_severity": "CRITICAL",
+      "epss_score": 0.99964,
+      "epss_percentile": 0.99976,
+      "cisa_kev": true,
+      "patch_status": "Open"
+    }
+  ],
+  "security_controls": [
+    {
+      "id": 1,
+      "asset_id": 1,
+      "control_name": "Web Application Firewall",
+      "control_type": "Preventive",
+      "implemented": true,
+      "effectiveness": 0.75,
+      "annual_cost": 600000.0,
+      "framework_reference": "NIST PR"
+    },
+    {
+      "id": 2,
+      "asset_id": 1,
+      "control_name": "Endpoint Detection and Response",
+      "control_type": "Detective",
+      "implemented": true,
+      "effectiveness": 0.8,
+      "annual_cost": 450000.0,
+      "framework_reference": "NIST DE"
+    },
+    {
+      "id": 3,
+      "asset_id": 3,
+      "control_name": "Multi-Factor Authentication",
+      "control_type": "Preventive",
+      "implemented": true,
+      "effectiveness": 0.85,
+      "annual_cost": 350000.0,
+      "framework_reference": "NIST PR"
+    },
+    {
+      "id": 4,
+      "asset_id": 3,
+      "control_name": "Privileged Access Management",
+      "control_type": "Preventive",
+      "implemented": false,
+      "effectiveness": 0.0,
+      "annual_cost": 700000.0,
+      "framework_reference": "NIST PR"
+    },
+    {
+      "id": 5,
+      "asset_id": 4,
+      "control_name": "Database Encryption",
+      "control_type": "Preventive",
+      "implemented": true,
+      "effectiveness": 0.9,
+      "annual_cost": 300000.0,
+      "framework_reference": "NIST PR"
+    },
+    {
+      "id": 6,
+      "asset_id": 5,
+      "control_name": "API Gateway Protection",
+      "control_type": "Preventive",
+      "implemented": true,
+      "effectiveness": 0.7,
+      "annual_cost": 500000.0,
+      "framework_reference": "NIST PR"
+    },
+    {
+      "id": 7,
+      "asset_id": 6,
+      "control_name": "Patch Management",
+      "control_type": "Preventive",
+      "implemented": false,
+      "effectiveness": 0.0,
+      "annual_cost": 250000.0,
+      "framework_reference": "NIST PR"
+    }
+  ]
+}

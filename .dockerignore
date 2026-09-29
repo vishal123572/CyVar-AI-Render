@@ -1,0 +1,16 @@
+.git
+.local
+.runtime
+**/.env
+**/.env.*
+!**/.env.example
+**/venv
+**/.venv*
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/*.log
+frontend/dist
+*.zip
+*.dump
+**/tests
